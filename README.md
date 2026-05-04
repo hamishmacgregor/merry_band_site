@@ -1,2 +1,2 @@
-# merry_band_site
+# Merry Band site
 Repository for building the Merry Band web site
