@@ -567,8 +567,10 @@ hr {
   }
 
   /* Strips become horizontal bands that expand up-down.
-     Definite height (not min-height) so flex: 1 0 0 distributes correctly. */
+     flex: none removes the desktop flex-basis: 0 so height: 65vh applies.
+     Without this, flex-basis overrides the explicit height and strips collapse. */
   .event-strips {
+    flex: none;
     flex-direction: column;
     height: 65vh;
   }
