@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Booking — Merry Band</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <a href="index.html" class="logo">Merry Band</a>
+        <p class="tagline">Wedding &amp; Event Musicians</p>
+      </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="musicians.html">Musicians</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <h1>Get in Touch</h1>
+        <p>We'll get back to you within 48 hours with availability and a tailored quote</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="contact-layout">
+
+          <!-- Contact information -->
+          <div class="contact-intro">
+            <h2>Booking Enquiries</h2>
+            <hr class="gold-rule">
+            <p>Whether you have a firm date in mind or you're still in the early stages of planning, we're happy to have a conversation. Fill in the form and tell us as much or as little as you know — we'll take it from there.</p>
+            <p>We typically respond within two working days. For urgent enquiries, please note that in the message and we'll do our best to get back to you sooner.</p>
+
+            <dl class="contact-details">
+              <dt>Email</dt>
+              <dd>bookings@merryband.co.uk</dd>
+
+              <dt>Phone</dt>
+              <dd>+44 (0)20 7946 0391</dd>
+
+              <dt>Hours</dt>
+              <dd>Monday to Friday, 9am – 6pm</dd>
+
+              <dt>Based in</dt>
+              <dd>London, UK — available nationwide</dd>
+            </dl>
+
+            <!-- Image placeholder: photo of the Merry Band team or office space -->
+          </div>
+
+          <!-- Booking enquiry form -->
+          <div>
+            <h2>Enquiry Form</h2>
+            <hr class="gold-rule">
+
+            <form class="booking-form" action="#" method="post">
+
+              <div class="form-group">
+                <label for="name">Your Name <span class="required" aria-label="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  placeholder="Jane Smith">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address <span class="required" aria-label="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  placeholder="jane@example.com">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  placeholder="+44 07700 900000">
+              </div>
+
+              <div class="form-group">
+                <label for="event-date">Event Date <span class="required" aria-label="required">*</span></label>
+                <input
+                  type="date"
+                  id="event-date"
+                  name="event_date"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label for="event-type">Type of Event</label>
+                <select id="event-type" name="event_type">
+                  <option value="">— Please select —</option>
+                  <option value="wedding-ceremony">Wedding Ceremony</option>
+                  <option value="wedding-reception">Wedding Reception</option>
+                  <option value="wedding-full-day">Wedding — Full Day</option>
+                  <option value="corporate">Corporate Event</option>
+                  <option value="private-party">Private Party</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="venue">Venue Name &amp; Location</label>
+                <input
+                  type="text"
+                  id="venue"
+                  name="venue"
+                  placeholder="e.g. The Old Barn, Gloucestershire">
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell Us About Your Event <span class="required" aria-label="required">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Any details about the event, musical preferences, guest numbers, or questions you have are very welcome."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send Enquiry</button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Merry Band. All rights reserved.</p>
+      <p><a href="contact.html">Contact us</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
