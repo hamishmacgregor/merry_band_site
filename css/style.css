@@ -187,7 +187,7 @@ hr {
 }
 
 .hero-column {
-  flex: 0 0 40%;
+  flex: 0 0 50%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -214,11 +214,12 @@ hr {
   flex: 1;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   overflow: hidden;
 }
 
 .strip {
-  flex: 0 0 25%;
+  flex: 0 0 33.333%; 
   position: relative;
   display: flex;
   align-items: center;
@@ -237,6 +238,8 @@ hr {
 .strip-bg {
   position: absolute;
   inset: 0;
+  background-size: cover;
+  background-position: center;
   background-color: var(--card-grey);
   transition: transform 0.6s ease;
 }
@@ -259,7 +262,7 @@ hr {
   }
 
   .event-strips:has(.strip:hover) .strip:hover {
-    flex-basis: calc(100% - 3 * 56px);
+    flex-basis: calc(100% - 2 * 56px);
   }
 
   .event-strips:has(.strip:hover) .strip:hover .strip-overlay {
@@ -568,10 +571,12 @@ hr {
 
   /* Strips become horizontal bands that expand up-down.
      flex: none removes the desktop flex-basis: 0 so height: 65vh applies.
-     Without this, flex-basis overrides the explicit height and strips collapse. */
+     Without this, flex-basis overrides the explicit height and strips collapse.
+     justify-content reset: flex-end would push bands to the bottom in column mode. */
   .event-strips {
     flex: none;
     flex-direction: column;
+    justify-content: flex-start;
     height: 65vh;
   }
 
@@ -606,7 +611,7 @@ hr {
   }
 
   .event-strips:has(.strip.is-expanded) .strip.is-expanded {
-    flex: 1 0 0;
+    flex: 0 0 calc(100% - 2 * 44px);
   }
 
   .event-strips:has(.strip.is-expanded) .strip.is-expanded .strip-overlay {
