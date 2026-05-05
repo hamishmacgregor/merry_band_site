@@ -3,11 +3,11 @@
 
 /* ── Variables ─────────────────────────────────────────────────────────── */
 :root {
-  --bg:            #f6f6f4;
+  --bg:            #fafafa;
   --white:         #ffffff;
-  --text:          #1a1a1a;
-  --text-muted:    #6a6a6a;
-  --border:        #e0e0dc;
+  --text:          #111111;
+  --text-muted:    #666666;
+  --border:        #e0e0e0;
   --card-grey:     #adadad;
   --max-width:     980px;
   --header-height: 64px;
