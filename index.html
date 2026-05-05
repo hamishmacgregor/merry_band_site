@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Merry Band — Live Music for Special Events</title>
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -112,6 +112,7 @@
 
   <script>
     (function () {
+      // ── Hamburger nav ──────────────────────────────────────────────────
       var btn = document.querySelector('.hamburger');
       var nav = document.getElementById('site-nav');
       btn.addEventListener('click', function () {
@@ -125,6 +126,32 @@
           nav.classList.remove('is-open');
           btn.setAttribute('aria-expanded', 'false');
         });
+      });
+
+      // ── Mobile strip tap-to-preview ────────────────────────────────────
+      // Only activate on touch / non-hover devices.
+      if (!window.matchMedia('(hover: none)').matches) return;
+
+      var strips = document.querySelectorAll('.strip');
+
+      strips.forEach(function (strip) {
+        strip.addEventListener('click', function (e) {
+          if (strip.classList.contains('is-expanded')) {
+            // Already previewed — let the link navigate normally.
+            return;
+          }
+          // First tap: expand this strip, suppress navigation.
+          e.preventDefault();
+          strips.forEach(function (s) { s.classList.remove('is-expanded'); });
+          strip.classList.add('is-expanded');
+        });
+      });
+
+      // Tap anywhere outside the strips to collapse.
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.strip')) {
+          strips.forEach(function (s) { s.classList.remove('is-expanded'); });
+        }
       });
     })();
   </script>
