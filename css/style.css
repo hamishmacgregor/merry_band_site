@@ -180,82 +180,147 @@ hr {
   border-bottom-color: var(--text);
 }
 
-/* ── Home hero ─────────────────────────────────────────────────────────── */
-.hero {
-  padding: 5rem 0 4rem;
-  border-bottom: 1px solid var(--border);
+/* ── Homepage split layout ─────────────────────────────────────────────── */
+.homepage-layout {
+  display: flex;
+  height: calc(100vh - var(--header-height));
 }
 
-.hero h1 { max-width: 620px; margin-bottom: 1.25rem; }
+.hero-column {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-right: 1px solid var(--border);
+}
 
-.hero p {
-  max-width: 520px;
+.hero-inner {
+  padding: 3rem 3rem 3rem 2rem;
+  max-width: 400px;
+}
+
+.hero-inner h1 {
+  margin-bottom: 1.25rem;
+}
+
+.hero-inner p {
   color: var(--text-muted);
   font-size: 1.05rem;
+  margin-bottom: 0;
 }
 
-/* ── Event type cards ──────────────────────────────────────────────────── */
-.event-types {
-  display: flex;
-  width: 100%;
-}
-
-.event-card {
+/* ── Event strips ──────────────────────────────────────────────────────── */
+.event-strips {
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.strip {
+  flex: 0 0 25%;
   position: relative;
-  height: 52vh;
-  min-height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   text-decoration: none;
   color: #ffffff;
+  transition: flex-basis 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.event-card + .event-card {
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+.strip + .strip {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Background layer (will become the image) */
-.event-card-bg {
+/* Background image placeholder layer */
+.strip-bg {
   position: absolute;
   inset: 0;
   background-color: var(--card-grey);
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
-/* Slight tonal variation between cards while placeholders */
-.event-card:nth-child(2) .event-card-bg { background-color: #979797; }
-.event-card:nth-child(3) .event-card-bg { background-color: #b8b8b8; }
-.event-card:nth-child(4) .event-card-bg { background-color: #a3a3a3; }
+.strip:nth-child(2) .strip-bg { background-color: #979797; }
+.strip:nth-child(3) .strip-bg { background-color: #b8b8b8; }
+.strip:nth-child(4) .strip-bg { background-color: #a3a3a3; }
 
-/* Dark overlay */
-.event-card-overlay {
+.strip-overlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.28);
   transition: background-color 0.35s ease;
 }
 
-/* Hover: subtle zoom + deepen overlay */
-.event-card:hover .event-card-bg { transform: scale(1.04); }
-.event-card:hover .event-card-overlay { background-color: rgba(0, 0, 0, 0.52); }
-
-.event-card-title {
-  position: relative;
-  z-index: 1;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
-  color: #ffffff;
-  text-align: center;
-  padding: 0 1.25rem;
-  letter-spacing: 0.02em;
-  transition: letter-spacing 0.35s ease;
+/* When any strip is hovered: collapse all to label-width */
+.event-strips:has(.strip:hover) .strip {
+  flex-basis: 56px;
 }
 
-.event-card:hover .event-card-title { letter-spacing: 0.06em; }
+/* The hovered strip expands to fill remaining space */
+.event-strips:has(.strip:hover) .strip:hover {
+  flex-basis: calc(100% - 3 * 56px);
+}
+
+.event-strips:has(.strip:hover) .strip:hover .strip-overlay {
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+.event-strips:has(.strip:hover) .strip:hover .strip-bg {
+  transform: scale(1.04);
+}
+
+/* Vertical label (always present, centered in strip) */
+.strip-label {
+  position: relative;
+  z-index: 1;
+  writing-mode: vertical-lr;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  transition: opacity 0.18s ease;
+  user-select: none;
+}
+
+/* Expanded content (title + one-liner, shown when strip is hovered) */
+.strip-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 2rem;
+  opacity: 0;
+  transition: opacity 0.22s ease 0.28s; /* delay until strip has mostly opened */
+}
+
+.strip-content h2 {
+  color: #ffffff;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.strip-content p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* On hover: hide label, reveal content */
+.event-strips:has(.strip:hover) .strip:hover .strip-label {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.event-strips:has(.strip:hover) .strip:hover .strip-content {
+  opacity: 1;
+}
 
 /* ── About section ─────────────────────────────────────────────────────── */
 .about {
@@ -480,29 +545,68 @@ hr {
 
 /* ── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
-  /* Cards go 2×2 on smaller screens */
-  .event-types { flex-wrap: wrap; }
-
-  .event-card {
-    flex: 0 0 50%;
-    height: 44vw;
-    min-height: 150px;
+  /* Stack layout vertically: hero on top, strips below */
+  .homepage-layout {
+    flex-direction: column;
+    height: auto;
   }
 
-  /* Reset the left-border rule, apply separators for 2-column grid */
-  .event-card + .event-card { border-left: none; }
-  .event-card:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, 0.2); }
-  .event-card:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, 0.2); }
+  .hero-column {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-inner {
+    padding: 3rem 1.5rem;
+    max-width: 100%;
+  }
+
+  /* Strips become horizontal bands that expand up-down */
+  .event-strips {
+    flex-direction: column;
+    min-height: 60vh;
+  }
+
+  .strip {
+    flex: 0 0 25%; /* equal-height bands */
+    transition: flex-basis 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Separators between horizontal bands */
+  .strip + .strip {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  /* Collapse height when a sibling is tapped */
+  .event-strips:has(.strip:hover) .strip {
+    flex-basis: 44px;
+  }
+
+  .event-strips:has(.strip:hover) .strip:hover {
+    flex-basis: calc(100% - 3 * 44px);
+  }
+
+  /* Label becomes horizontal inside the band */
+  .strip-label {
+    writing-mode: horizontal-tb;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+  }
+
+  /* Content centred vertically in horizontal band */
+  .strip-content {
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    transition-delay: 0.22s;
+  }
 
   .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
-
   .site-nav ul { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 479px) {
   .site-nav ul { grid-template-columns: 1fr; }
-
-  .event-card { flex: 0 0 100%; height: 55vw; }
-  .event-card + .event-card { border-left: none; border-top: 1px solid rgba(255,255,255,0.2); }
-  .event-card:nth-child(odd) { border-right: none; }
 }
