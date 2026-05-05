@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parties — Merry Band</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Merry Band</a>
+      <button class="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="weddings.html">Weddings</a></li>
+        <li><a href="funerals.html">Funerals &amp; Memorials</a></li>
+        <li><a href="parties.html" aria-current="page">Parties</a></li>
+        <li><a href="other-events.html">Other Events</a></li>
+        <li><a href="services.html">Services &amp; Repertoire</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact &amp; Booking</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <h1>Parties</h1>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Merry Band. All rights reserved.</p>
+      <p><a href="contact.html">Contact us</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.hamburger');
+      var nav = document.getElementById('site-nav');
+      btn.addEventListener('click', function () {
+        var open = this.classList.toggle('is-open');
+        nav.classList.toggle('is-open');
+        this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          btn.classList.remove('is-open');
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

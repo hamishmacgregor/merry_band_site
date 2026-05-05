@@ -3,99 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merry Band — Wedding &amp; Event Musicians</title>
+  <title>Merry Band — Live Music for Special Events</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header class="site-header">
     <div class="container">
-      <div>
-        <a href="index.html" class="logo">Merry Band</a>
-        <p class="tagline">Wedding &amp; Event Musicians</p>
-      </div>
-      <nav class="site-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="musicians.html">Musicians</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      <a href="index.html" class="logo">Merry Band</a>
+      <button class="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="weddings.html">Weddings</a></li>
+        <li><a href="funerals.html">Funerals &amp; Memorials</a></li>
+        <li><a href="parties.html">Parties</a></li>
+        <li><a href="other-events.html">Other Events</a></li>
+        <li><a href="services.html">Services &amp; Repertoire</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact &amp; Booking</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
 
-    <section class="home-hero">
+    <section class="hero">
       <div class="container">
-        <h1>Live Music for Life's Best Moments</h1>
-        <p class="subtitle">Weddings, celebrations &amp; private events across the UK</p>
-        <p>From intimate string duets to full jazz ensembles, Merry Band connects you with professional musicians who understand that the right music makes every moment unforgettable.</p>
-        <a href="contact.html" class="btn btn-primary">Enquire About Your Event</a>
+        <h1>Uplifting live music for special events</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque vehicula tincidunt est, et fringilla lectus lacinia vel. Donec vel vestibulum orci, at fermentum nisl.</p>
       </div>
     </section>
 
-    <!-- Image placeholder: full-width hero photograph of musicians performing at a wedding reception -->
+    <section class="event-types" aria-label="Event types">
 
-    <section class="section">
-      <div class="container">
-        <h2>Why Choose Merry Band?</h2>
-        <hr class="gold-rule">
-        <div class="card-grid">
+      <a href="weddings.html" class="event-card">
+        <!-- Image placeholder: wedding ceremony photograph -->
+        <div class="event-card-bg"></div>
+        <div class="event-card-overlay"></div>
+        <h2 class="event-card-title">Weddings</h2>
+      </a>
 
-          <article class="card">
-            <h3>Experienced Professionals</h3>
-            <p>Every musician on our roster holds a conservatoire degree and has years of event experience. You'll hear the difference.</p>
-          </article>
+      <a href="funerals.html" class="event-card">
+        <!-- Image placeholder: flowers or memorial service photograph -->
+        <div class="event-card-bg"></div>
+        <div class="event-card-overlay"></div>
+        <h2 class="event-card-title">Funerals &amp;<br>Memorials</h2>
+      </a>
 
-          <article class="card">
-            <h3>Flexible Ensembles</h3>
-            <p>Solo pianist, string quartet, jazz trio or ceilidh band — we tailor the line-up to your venue, budget and vision.</p>
-          </article>
+      <a href="parties.html" class="event-card">
+        <!-- Image placeholder: party or celebration photograph -->
+        <div class="event-card-bg"></div>
+        <div class="event-card-overlay"></div>
+        <h2 class="event-card-title">Parties</h2>
+      </a>
 
-          <article class="card">
-            <h3>Bespoke Repertoire</h3>
-            <p>Have a special song in mind? Our musicians are happy to learn requests and work with you to build the perfect set list.</p>
-          </article>
+      <a href="other-events.html" class="event-card">
+        <!-- Image placeholder: corporate or private event photograph -->
+        <div class="event-card-bg"></div>
+        <div class="event-card-overlay"></div>
+        <h2 class="event-card-title">Other Events</h2>
+      </a>
 
-        </div>
-      </div>
     </section>
 
-    <section class="section">
+    <section class="about">
       <div class="container">
-        <h2>How It Works</h2>
-        <hr class="gold-rule">
-        <div class="card-grid">
-
-          <article class="card">
-            <h3>1. Get in Touch</h3>
-            <p>Tell us about your event — the date, venue, style and any musical ideas you already have.</p>
-          </article>
-
-          <article class="card">
-            <h3>2. We Match You</h3>
-            <p>We'll recommend the right ensemble and send over profiles, audio samples and a tailored quote within 48 hours.</p>
-          </article>
-
-          <article class="card">
-            <h3>3. Enjoy the Day</h3>
-            <p>Sit back and let us handle everything. We arrive early, set up quietly and deliver a flawless performance.</p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section text-center">
-      <div class="container">
-        <h2>Ready to Book?</h2>
-        <hr class="gold-rule" style="margin: 1rem auto 1.5rem;">
-        <p class="intro-text" style="margin: 0 auto 1.5rem;">Get in touch with our team and we'll help you find the perfect music for your event.</p>
-        <a href="contact.html" class="btn btn-primary" style="margin-right: 1rem;">Send an Enquiry</a>
-        <a href="services.html" class="btn btn-outline">See Our Services</a>
+        <h2>About us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Donec in efficitur leo, in commodo orci. Cras accumsan diam sit amet velit interdum, vel feugiat nisl cursus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+        <p>Nulla porttitor accumsan tincidunt. Vivamus magna. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
       </div>
     </section>
 
@@ -107,6 +88,25 @@
       <p><a href="contact.html">Contact us</a></p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.hamburger');
+      var nav = document.getElementById('site-nav');
+      btn.addEventListener('click', function () {
+        var open = this.classList.toggle('is-open');
+        nav.classList.toggle('is-open');
+        this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          btn.classList.remove('is-open');
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>

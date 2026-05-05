@@ -10,20 +10,25 @@
 
   <header class="site-header">
     <div class="container">
-      <div>
-        <a href="index.html" class="logo">Merry Band</a>
-        <p class="tagline">Wedding &amp; Event Musicians</p>
-      </div>
-      <nav class="site-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="musicians.html">Musicians</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
-        </ul>
-      </nav>
+      <a href="index.html" class="logo">Merry Band</a>
+      <button class="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="weddings.html">Weddings</a></li>
+        <li><a href="funerals.html">Funerals &amp; Memorials</a></li>
+        <li><a href="parties.html">Parties</a></li>
+        <li><a href="other-events.html">Other Events</a></li>
+        <li><a href="services.html">Services &amp; Repertoire</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html" aria-current="page">Contact &amp; Booking</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -41,9 +46,9 @@
         <div class="contact-layout">
 
           <!-- Contact information -->
-          <div class="contact-intro">
+          <div>
             <h2>Booking Enquiries</h2>
-            <hr class="gold-rule">
+            <hr>
             <p>Whether you have a firm date in mind or you're still in the early stages of planning, we're happy to have a conversation. Fill in the form and tell us as much or as little as you know — we'll take it from there.</p>
             <p>We typically respond within two working days. For urgent enquiries, please note that in the message and we'll do our best to get back to you sooner.</p>
 
@@ -67,7 +72,7 @@
           <!-- Booking enquiry form -->
           <div>
             <h2>Enquiry Form</h2>
-            <hr class="gold-rule">
+            <hr>
 
             <form class="booking-form" action="#" method="post">
 
@@ -116,12 +121,10 @@
                 <label for="event-type">Type of Event</label>
                 <select id="event-type" name="event_type">
                   <option value="">— Please select —</option>
-                  <option value="wedding-ceremony">Wedding Ceremony</option>
-                  <option value="wedding-reception">Wedding Reception</option>
-                  <option value="wedding-full-day">Wedding — Full Day</option>
-                  <option value="corporate">Corporate Event</option>
-                  <option value="private-party">Private Party</option>
-                  <option value="other">Other</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="funeral-memorial">Funeral or Memorial</option>
+                  <option value="party">Party</option>
+                  <option value="other">Other Event</option>
                 </select>
               </div>
 
@@ -143,7 +146,7 @@
                   placeholder="Any details about the event, musical preferences, guest numbers, or questions you have are very welcome."></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary">Send Enquiry</button>
+              <button type="submit" class="btn btn-dark">Send Enquiry</button>
 
             </form>
           </div>
@@ -160,6 +163,25 @@
       <p><a href="contact.html">Contact us</a></p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.hamburger');
+      var nav = document.getElementById('site-nav');
+      btn.addEventListener('click', function () {
+        var open = this.classList.toggle('is-open');
+        nav.classList.toggle('is-open');
+        this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          btn.classList.remove('is-open');
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>

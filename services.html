@@ -10,20 +10,25 @@
 
   <header class="site-header">
     <div class="container">
-      <div>
-        <a href="index.html" class="logo">Merry Band</a>
-        <p class="tagline">Wedding &amp; Event Musicians</p>
-      </div>
-      <nav class="site-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="musicians.html">Musicians</a></li>
-          <li><a href="services.html" aria-current="page">Services</a></li>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      <a href="index.html" class="logo">Merry Band</a>
+      <button class="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="weddings.html">Weddings</a></li>
+        <li><a href="funerals.html">Funerals &amp; Memorials</a></li>
+        <li><a href="parties.html">Parties</a></li>
+        <li><a href="other-events.html">Other Events</a></li>
+        <li><a href="services.html" aria-current="page">Services &amp; Repertoire</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact &amp; Booking</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -39,7 +44,7 @@
       <div class="container">
 
         <h2>What We Offer</h2>
-        <hr class="gold-rule">
+        <hr>
         <p class="intro-text">We provide live music for every stage of your event — from the moment guests arrive to the final dance of the evening. All packages are fully customisable.</p>
 
         <div class="service-block">
@@ -85,11 +90,11 @@
       <div class="container">
 
         <h2>Sample Repertoire</h2>
-        <hr class="gold-rule">
+        <hr>
         <p class="intro-text">The following gives a flavour of what our musicians can perform. This is not an exhaustive list — we're always happy to discuss special requests.</p>
 
         <table class="repertoire-table">
-          <caption style="text-align:left; margin-bottom: 0.5rem; color: var(--text-muted); font-size:0.9rem;">Classical &amp; Ceremony Favourites</caption>
+          <caption>Classical &amp; Ceremony Favourites</caption>
           <thead>
             <tr>
               <th>Title</th>
@@ -126,10 +131,8 @@
           </tbody>
         </table>
 
-        <br>
-
         <table class="repertoire-table">
-          <caption style="text-align:left; margin-bottom: 0.5rem; color: var(--text-muted); font-size:0.9rem;">Popular &amp; Contemporary</caption>
+          <caption>Popular &amp; Contemporary</caption>
           <thead>
             <tr>
               <th>Title</th>
@@ -166,10 +169,8 @@
           </tbody>
         </table>
 
-        <br>
-
         <table class="repertoire-table">
-          <caption style="text-align:left; margin-bottom: 0.5rem; color: var(--text-muted); font-size:0.9rem;">Jazz Standards</caption>
+          <caption>Jazz Standards</caption>
           <thead>
             <tr>
               <th>Title</th>
@@ -209,12 +210,12 @@
       </div>
     </section>
 
-    <section class="section text-center">
+    <section class="section">
       <div class="container">
         <h2>Ready to Talk?</h2>
-        <hr class="gold-rule" style="margin: 1rem auto 1.5rem;">
-        <p class="intro-text" style="margin: 0 auto 1.5rem;">Every event is different. Contact us and we'll put together a package that's right for you.</p>
-        <a href="contact.html" class="btn btn-primary">Make an Enquiry</a>
+        <p>Every event is different. Contact us and we'll put together a package that's right for you.</p>
+        <br>
+        <a href="contact.html" class="btn btn-dark">Make an Enquiry</a>
       </div>
     </section>
 
@@ -226,6 +227,25 @@
       <p><a href="contact.html">Contact us</a></p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.hamburger');
+      var nav = document.getElementById('site-nav');
+      btn.addEventListener('click', function () {
+        var open = this.classList.toggle('is-open');
+        nav.classList.toggle('is-open');
+        this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          btn.classList.remove('is-open');
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
